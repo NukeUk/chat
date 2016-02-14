@@ -26,6 +26,12 @@ var insertDocuments = function(db, callback) {
         assert.equal(3, result.result.n);
         assert.equal(3, result.ops.length);
         console.log("Inserted 3 documents into the document collection");
+
         callback(result);
     });
-}
+    var cursor = collection.find();
+    cursor.toArray(function(err, results) {
+        console.dir(results);
+    })
+
+};
